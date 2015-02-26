@@ -1,5 +1,6 @@
-import DS from 'ember-data';
-
 export default DS.ActiveModelAdapter.extend({
-  host: "https://safe-gorge-4257.herokuapp.com"
+
+  // slight hack until the ember-cli-dotenv package is fixed
+  host: ENV.adapterURL || ENV.ADAPTER_URL
+
 });

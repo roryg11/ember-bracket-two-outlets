@@ -4,6 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'ember-bracketology-two-resources',
     environment: environment,
+    adapterURL: process.env.ADAPTER_URL,
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
