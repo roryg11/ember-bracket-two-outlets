@@ -1,14 +1,48 @@
 <h1>team two</h1>
-
 {{input value=newTeamTwoPlayers on="keyup" placeholder="Pick Your Second Team..."}}
-<div class="ui divided list">
+<div class="ui divided list three wide">
   {{#if newTeamTwoPlayers}}
   {{#each team in foundTeamsTwo}}
   <div class="item">
-    {{#link-to 'teams.teamtwo.show' team}}{{team.name}}{{/link-to}}
+    <button {{action "showTeamTwo" team}}>{{team.name}}</button>
   </div>
   {{/each}}
   {{/if}}
 </div>
+
+<div class="ui card three wide">
+  <div class="header">
+    {{teamTwoShow.name}}
+    <img {{bind-attr src=teamTwoShow.imgUrl}}/>
+  </div>
+  <div class="content">
+    {{teamTwoShow.oPpg}}
+  </div>
+  <button {{action 'findTeamTwoPlayers' teamTwoShow.name}}>See Players</button>
+</div>
+
+<div class="ui divided list three wide">
+  <div class="header">
+    {{#each teamTwoArray}}
+      <h4>{{this.name}}<span {{action "showTeamTwoPlayersStats" this}}>More</span></h4>
+    {{/each}}
+    <h4>{{teamTwoPlayerStats.name}}</h4>
+  </div>
+  <div class="content">
+    {{teamTwoPlayerStats.name}}
+    {{teamTwoPlayerStats.ppg}}
+    {{teamTwoPlayerStats.apg}}
+    {{teamTwoPlayerStats.bpg}}
+    {{teamTwoPlayerStats.rpg}}
+    {{teamTwoPlayerStats.spg}}
+    {{teamTwoPlayerStats.ft}}
+    {{teamTwoPlayerStats.threep}}
+  </div>
+</div>
+
+
+
+
+
 
 {{outlet}}
