@@ -1,0 +1,14 @@
+<h1>team two</h1>
+
+{{input value=newTeamTwoPlayers on="keyup" placeholder="Pick Your Second Team..."}}
+<div class="ui divided list">
+  {{#if newTeamTwoPlayers}}
+  {{#each team in foundTeamsTwo}}
+  <div class="item">
+    {{#link-to 'teams.teamtwo.show' team}}{{team.name}}{{/link-to}}
+  </div>
+  {{/each}}
+  {{/if}}
+</div>
+
+{{outlet}}
