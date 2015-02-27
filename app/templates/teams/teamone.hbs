@@ -1,28 +1,167 @@
-<h1>team one</h1>
-
-{{input value=newTeamOnePlayers on="keyup" placeholder="Pick Your First Team..."}}
-<div class="ui divided list three wide">
+<div class="ui input center-el">
+  {{input value=newTeamOnePlayers on="keyup" placeholder="Pick Your First Team..."}}
+</div>
+<div class="ui divided list">
   {{#if newTeamOnePlayers}}
     {{#each team in foundTeamsOne}}
     <div class="item">
-      <button {{action "showTeamOne" team}}>{{team.name}}</button>
+      <a {{action "showTeamOne" team}} >{{team.name}}</a>
     </div>
     {{/each}}
   {{/if}}
 </div>
 
-<div class="ui card three wide">
-  <div class="header">
-    {{teamOneShow.name}}
-    <img {{bind-attr src=teamOneShow.imgUrl}}/>
-  </div>
+<div class="ui card center-el">
   <div class="content">
-    {{teamOneShow.oPpg}}
+    <div class="header">
+      <img class="ui avatar square medium"{{bind-attr src=teamOneShow.imgUrl}}/>
+      {{teamOneShow.name}}
+    </div>
+    <h3>Offense</h3>
+    <div class="ui tiny statistic">
+      <div class="value float right">
+        {{teamOneShow.oPpgRank}}
+      </div>
+      <div class="label float right">
+        Rank
+      </div>
+    </div>
+    <div class="ui mini statistic">
+      <div class="value">
+        {{teamOneShow.oPpg}}
+      </div>
+      <div class="label">
+        PPG
+      </div>
+    </div>
+    <br>
+    <div class="ui tiny statistic">
+      <div class="value float right">
+        {{teamOneShow.oRpgRank}}
+      </div>
+      <div class="label float right">
+        Rank
+      </div>
+    </div>
+    <div class="ui mini statistic">
+      <div class="value">
+        {{teamOneShow.oRpg}}
+      </div>
+      <div class="label">
+        RPG
+      </div>
+    </div>
+    <br>
+    <div class="ui tiny statistic">
+      <div class="value float right">
+        {{teamOneShow.oApgRank}}
+      </div>
+      <div class="label float right">
+        Rank
+      </div>
+    </div>
+    <div class="ui mini statistic">
+      <div class="value">
+        {{teamOneShow.oApg}}
+      </div>
+      <div class="label">
+        APG
+      </div>
+    </div>
+    <br>
+    <div class="ui tiny statistic">
+      <div class="value float right">
+        {{teamOneShow.oFgRank}}
+      </div>
+      <div class="label float right">
+        Rank
+      </div>
+    </div>
+    <div class="ui mini statistic">
+      <div class="value">
+        {{teamOneShow.oFg}}
+      </div>
+      <div class="label">
+        FG%
+      </div>
+    </div>
+    <br>
+
+    <div class="ui content divider"></div>
+    <h3>Defense</h3>
+    <div class="ui tiny statistic">
+      <div class="value float right">
+        {{teamOneShow.dPpgRank}}
+      </div>
+      <div class="label float right">
+        Rank
+      </div>
+    </div>
+    <div class="ui mini statistic">
+      <div class="value">
+        {{teamOneShow.dPpg}}
+      </div>
+      <div class="label">
+        PPG
+      </div>
+    </div>
+    <br>
+    <div class="ui tiny statistic">
+      <div class="value float right">
+        {{teamOneShow.dRpgRank}}
+      </div>
+      <div class="label float right">
+        Rank
+      </div>
+    </div>
+    <div class="ui mini statistic">
+      <div class="value">
+        {{teamOneShow.dRpg}}
+      </div>
+      <div class="label">
+        RPG
+      </div>
+    </div>
+    <br>
+    <div class="ui tiny statistic">
+      <div class="value float right">
+        {{teamOneShow.dBpgRank}}
+      </div>
+      <div class="label float right">
+        Rank
+      </div>
+    </div>
+    <div class="ui mini statistic">
+      <div class="value">
+        {{teamOneShow.dBpg}}
+      </div>
+      <div class="label">
+        BPG
+      </div>
+    </div>
+    <br>
+    <div class="ui tiny statistic">
+      <div class="value float right">
+        {{teamOneShow.dSpgRank}}
+      </div>
+      <div class="label float right">
+        Rank
+      </div>
+    </div>
+    <div class="ui mini statistic">
+      <div class="value">
+        {{teamOneShow.dSpg}}
+      </div>
+      <div class="label">
+        SPG
+      </div>
+    </div>
+    <br>
   </div>
-  <button {{action 'findTeamOnePlayers' teamOneShow.name}}>See Players</button>
+  <button class= "ui button teal large"{{action 'findTeamOnePlayers' teamOneShow.name}}>See Players</button>
 </div>
 
-<div class="ui divided list three wide">
+<div class="ui divided list">
   <div class="header">
     {{#each teamOneArray}}
     <h4>{{this.name}}<span {{action "showTeamOnePlayersStats" this}}>More</span></h4>

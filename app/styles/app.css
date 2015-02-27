@@ -1,0 +1,12 @@
+.center-el {
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.center-item {
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 290px !important;
+}

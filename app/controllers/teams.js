@@ -41,6 +41,7 @@ export default Ember.Controller.extend({
       Ember.$.getJSON('https://safe-gorge-4257.herokuapp.com/teams/' + team).then(function(response){
         var team = response.teams;
         _this.set('teamTwoArray', team);
+        _this.set('teamTwoPlayerStats', '')
       })
     },
     findTeamOnePlayers: function(team){
@@ -48,6 +49,7 @@ export default Ember.Controller.extend({
       Ember.$.getJSON('https://safe-gorge-4257.herokuapp.com/teams/' + team).then(function(response){
         var team = response.teams;
         _this.set('teamOneArray', team);
+        _this.set('teamOnePlayerStats', '');
       })
     },
     showTeamTwoPlayersStats: function(player){
