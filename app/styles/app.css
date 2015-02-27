@@ -10,3 +10,7 @@
   margin-right: auto !important;
   width: 290px !important;
 }
+
+.main-page {
+  position: relative;
+}

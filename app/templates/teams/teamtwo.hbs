@@ -1,7 +1,7 @@
-<div class="ui input center-el">
+<div class="ui input center-item">
   {{input value=newTeamTwoPlayers on="keyup" placeholder="Pick Your Second Team..."}}
 </div>
-<div class="ui divided list">
+<div class="ui divided list center-item">
   {{#if newTeamTwoPlayers}}
     {{#each team in foundTeamsTwo}}
       <div class="item">
@@ -11,12 +11,14 @@
   {{/if}}
 </div>
 
+{{#if teamTwoShow}}
 <div class="ui card center-el">
   <div class="content">
     <div class="header">
       <img class="ui avatar square medium"{{bind-attr src=teamTwoShow.imgUrl}}/>
       {{teamTwoShow.name}}
     </div>
+    <div class="ui content divider"></div>
     <h3>Offense</h3>
     <div class="ui tiny statistic">
       <div class="value float right">
@@ -160,27 +162,36 @@
   </div>
   <button class="ui button teal large" {{action 'findTeamTwoPlayers' teamTwoShow}}>See Players</button>
 </div>
+{{/if}}
 
-<div class="ui divided list center-el">
-  <div class="content">
-    <div class="header">
+{{#if teamTwoArray }}
+  <div class="ui card divided list center-el">
+    <div class="content">
       {{#each teamTwoArray}}
-        <h3>ROSTER</h3>
         <div class="item">
-          {{this.name}}<span {{action "showTeamTwoPlayersStats" this}}>More</span>
+          <p {{action "showTeamTwoPlayersStats" this}}>{{this.name}}</p>
         </div>
+        <div class="ui content divider"></div>
       {{/each}}
-      <h4>{{teamTwoPlayerStats.name}}</h4>
     </div>
-    {{teamTwoPlayerStats.ppg}}
-    {{teamTwoPlayerStats.apg}}
-    {{teamTwoPlayerStats.bpg}}
-    {{teamTwoPlayerStats.rpg}}
-    {{teamTwoPlayerStats.spg}}
-    {{teamTwoPlayerStats.ft}}
-    {{teamTwoPlayerStats.threep}}
+</div>
+{{/if}}
+
+{{#if teamTwoPlayerStats}}
+
+<div class="ui card center-el">
+  <div class="content center aligned">
+    <h4 class="header">{{teamTwoPlayerStats.name}}</h4>
+    <div class="ui content divider"></div>
+    <p><strong>PPG:</strong> {{teamTwoPlayerStats.ppg}} | <strong>APG:</strong> {{teamTwoPlayerStats.apg}}</p>
+    <p><strong>BPG:</strong> {{teamTwoPlayerStats.bpg}} | <strong>RPG:</strong> {{teamTwoPlayerStats.rpg}}</p>
+    <p><strong>SPG:</strong> {{teamTwoPlayerStats.spg}} | <strong>FT%:</strong> {{teamTwoPlayerStats.ft}}</p>
+    <p><strong>3P%:</strong> {{teamTwoPlayerStats.threep}}</p>
   </div>
 </div>
+
+
+{{/if}}
 
 
 

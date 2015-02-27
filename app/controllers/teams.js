@@ -25,16 +25,17 @@ export default Ember.Controller.extend({
   }.property('newTeamTwoPlayers', 'model.@each.name'),
   actions: {
     showTeamOne: function(team){
-      var _this = this;
-      var team= team._data
+      team = team._data;
       this.set('teamOneShow', team);
       this.set('newTeamOnePlayers', '');
+      this.set('teamOnePlayerStats', '');
     },
     showTeamTwo: function(team){
-      var _this = this;
-      var team= team._data
+      team = team._data;
       this.set('teamTwoShow', team);
       this.set('newTeamTwoPlayers', '');
+      this.set('roster', "ROSTER");
+      this.set('teamTwoPlayerStats', '');
     },
     findTeamTwoPlayers: function(team){
       var _this=this;
@@ -42,8 +43,9 @@ export default Ember.Controller.extend({
       Ember.$.getJSON('https://safe-gorge-4257.herokuapp.com/teams/' + team.id).then(function(response){
         var team = response.teams;
         _this.set('teamTwoArray', team);
-        _this.set('teamTwoPlayerStats', '')
-      })
+        _this.set('teamTwoPlayerStats', '');
+        _this.set('roster', "ROSTER");
+      });
     },
     findTeamOnePlayers: function(team){
       var _this=this;
@@ -51,15 +53,20 @@ export default Ember.Controller.extend({
         var team = response.teams;
         _this.set('teamOneArray', team);
         _this.set('teamOnePlayerStats', '');
-      })
+        _this.set('roster', "ROSTER");
+
+      });
     },
     showTeamTwoPlayersStats: function(player){
       this.set('teamTwoPlayerStats', player);
       this.set('teamTwoArray', '');
+      this.set('roster', "ROSTER");
     },
     showTeamOnePlayersStats: function(player){
       this.set('teamOnePlayerStats', player);
       this.set('teamOneArray', '');
+      this.set('roster', "ROSTER");
+
     }
   }
 });
