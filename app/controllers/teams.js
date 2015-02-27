@@ -38,7 +38,7 @@ export default Ember.Controller.extend({
     },
     findTeamTwoPlayers: function(team){
       var _this=this;
-      Ember.$.getJSON('https://safe-gorge-4257.herokuapp.com/teams/' + team).then(function(response){
+      Ember.$.getJSON('https://safe-gorge-4257.herokuapp.com/teams/' + team.id).then(function(response){
         var team = response.teams;
         _this.set('teamTwoArray', team);
         _this.set('teamTwoPlayerStats', '')
@@ -46,7 +46,7 @@ export default Ember.Controller.extend({
     },
     findTeamOnePlayers: function(team){
       var _this=this;
-      Ember.$.getJSON('https://safe-gorge-4257.herokuapp.com/teams/' + team).then(function(response){
+      Ember.$.getJSON('https://safe-gorge-4257.herokuapp.com/teams/' + team.id).then(function(response){
         var team = response.teams;
         _this.set('teamOneArray', team);
         _this.set('teamOnePlayerStats', '');
