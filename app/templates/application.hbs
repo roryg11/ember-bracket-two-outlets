@@ -1,1 +1,6 @@
-{{outlet}}
+<div class="ui inverted menu">
+  <a class="item" href="/teams">NCAA Matchup</a>
+  {{#link-to 'teams.rank' class="item"}}Stat Rankings{{/link-to}}
+</div>
+
+{{outlet 'application'}}

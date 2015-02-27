@@ -1,0 +1,21 @@
+<div class="ui twelve column page grid">
+  <div class="ui vertical pointing menu four wide column floated left rankbar">
+      <a {{action "setRanking" 'o_ppg'}} class="item">Offensive Points</a>
+      <a {{action "setRanking" 'o_rpg'}} class="item">Offensive Rebounds</a>
+      <a {{action "setRanking" 'o_apg'}} class="item">Offensive Assists</a>
+      <a {{action "setRanking" 'o_fg'}} class="item">FG %</a>
+      <a {{action "setRanking" 'd_ppg'}} class="item">Points Allowed</a>
+      <a {{action "setRanking" 'd_bpg'}} class="item">Blocks</a>
+      <a {{action "setRanking" 'd_spg'}} class="teal item">Steals</a>
+  </div>
+  <div class="ui segment eight wide column floated right">
+    <ol class="ui selection list">
+      {{#each team in statRanking}}
+        <li class="item" {{action 'setTeamValues' team}}>
+          <img class="ui avatar image" {{bind-attr src=team.img_url}}>
+          <div class="content">{{team.name}}</div>
+        </li>
+      {{/each}}
+    </ol>
+  </div>
+</div>

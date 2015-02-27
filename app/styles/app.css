@@ -14,3 +14,7 @@
 .main-page {
   position: relative;
 }
+
+.rankbar {
+  margin-top: 1em !important;
+}

@@ -44,7 +44,6 @@ export default Ember.Controller.extend({
       team = team._data;
       this.set('teamTwoShow', team);
       this.set('newTeamTwoPlayers', '');
-      this.set('roster', "ROSTER");
       this.set('teamTwoPlayerStats', '');
     },
     findTeamTwoPlayers: function(team){
