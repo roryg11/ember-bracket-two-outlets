@@ -38,6 +38,7 @@ export default Ember.Controller.extend({
     },
     findTeamTwoPlayers: function(team){
       var _this=this;
+      console.log(team);
       Ember.$.getJSON('https://safe-gorge-4257.herokuapp.com/teams/' + team.id).then(function(response){
         var team = response.teams;
         _this.set('teamTwoArray', team);
