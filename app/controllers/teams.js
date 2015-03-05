@@ -9,9 +9,11 @@ export default Ember.Controller.extend({
   teamTwoArray: [],
   teamTwoPlayerStats: [],
   teamOnePlayerStats: [],
+  errorMessage: false,
   foundTeamsOne: function() {
     var teams = this.get('model');
     var filterString = this.get('newTeamOnePlayers').toLowerCase();
+    var _this=this;
     return teams.filter(function(team){
       return team.get('name').toLowerCase().indexOf(filterString) >= 0;
     });
@@ -39,7 +41,6 @@ export default Ember.Controller.extend({
     },
     findTeamTwoPlayers: function(team){
       var _this=this;
-      console.log(team);
       Ember.$.getJSON('https://safe-gorge-4257.herokuapp.com/teams/' + team.id).then(function(response){
         var team = response.teams;
         _this.set('teamTwoArray', team);
@@ -54,7 +55,6 @@ export default Ember.Controller.extend({
         _this.set('teamOneArray', team);
         _this.set('teamOnePlayerStats', '');
         _this.set('roster', "ROSTER");
-
       });
     },
     showTeamTwoPlayersStats: function(player){

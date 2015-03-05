@@ -1,6 +1,14 @@
 <div class="ui input center-item">
   {{input value=newTeamOnePlayers on="keyup" placeholder="Pick Your First Team..."}}
 </div>
+
+{{#if !newTeamOnePlayers}}
+  <div class="ui red message center-item">
+    <p>Please Enter a Valid Team Name</p>
+  </div>
+{{/if}}
+
+
 <div class="ui divided list center-item">
   {{#if newTeamOnePlayers}}
     {{#each team in foundTeamsOne}}
