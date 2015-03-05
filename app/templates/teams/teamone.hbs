@@ -17,6 +17,11 @@
     </div>
     {{/each}}
   {{/if}}
+  {{#if errorMessageTeamOne}}
+    <div class="ui red message">
+      <p>Please Enter a Valid Team</p>
+    </div>
+  {{/if}}
 </div>
 
 {{#if teamOneShow}}

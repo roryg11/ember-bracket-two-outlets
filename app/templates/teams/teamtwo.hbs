@@ -9,6 +9,11 @@
       </div>
     {{/each}}
   {{/if}}
+  {{#if errorMessageTeamTwo}}
+    <div class="ui red message">
+      <p>Please Enter a Valid Team</p>
+    </div>
+  {{/if}}
 </div>
 
 {{#if teamTwoShow}}
@@ -160,8 +165,8 @@
     </div>
     <br>
   </div>
-  <button class="ui button teal large" {{action 'findTeamTwoPlayers' teamTwoShow}}>See Players</button>
 </div>
+<button class="ui button teal medium center-item" {{action 'findTeamTwoPlayers' teamTwoShow}}>See Players</button>
 {{/if}}
 
 {{#if teamTwoArray }}

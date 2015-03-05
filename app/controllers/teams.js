@@ -9,21 +9,29 @@ export default Ember.Controller.extend({
   teamTwoArray: [],
   teamTwoPlayerStats: [],
   teamOnePlayerStats: [],
-  errorMessage: false,
+  errorMessageTeamOne: false,
+  errorMessageTeamTwo: false,
   foundTeamsOne: function() {
     var teams = this.get('model');
     var filterString = this.get('newTeamOnePlayers').toLowerCase();
-    var _this=this;
-    return teams.filter(function(team){
+    var filteredTeams = teams.filter(function(team){
       return team.get('name').toLowerCase().indexOf(filterString) >= 0;
     });
+    if(filteredTeams.length == 0){
+      this.set('errorMessageTeamOne', true)
+    }else{this.set('errorMessageTeamOne', false)};
+    return filteredTeams;
   }.property('newTeamOnePlayers', 'model.@each.name'),
   foundTeamsTwo: function() {
     var teams = this.get('model');
     var filterString = this.get('newTeamTwoPlayers').toLowerCase();
-    return teams.filter(function(team){
+    var filteredTeams = teams.filter(function(team){
       return team.get('name').toLowerCase().indexOf(filterString) >= 0;
     });
+    if(filteredTeams.length == 0){
+      this.set('errorMessageTeamTwo', true)
+    }else{this.set('errorMessageTeamTwo', false)};
+    return filteredTeams;
   }.property('newTeamTwoPlayers', 'model.@each.name'),
   actions: {
     showTeamOne: function(team){
@@ -36,7 +44,6 @@ export default Ember.Controller.extend({
       team = team._data;
       this.set('teamTwoShow', team);
       this.set('newTeamTwoPlayers', '');
-      this.set('roster', "ROSTER");
       this.set('teamTwoPlayerStats', '');
     },
     findTeamTwoPlayers: function(team){
