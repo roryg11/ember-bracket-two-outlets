@@ -2,7 +2,7 @@
   {{input value=newTeamOnePlayers on="keyup" placeholder="Pick Your First Team..."}}
 </div>
 
-{{#if !newTeamOnePlayers}}
+{{#if errorMessageTeamOne}}
   <div class="ui red message center-item">
     <p>Please Enter a Valid Team Name</p>
   </div>
